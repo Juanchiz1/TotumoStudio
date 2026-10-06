@@ -1,0 +1,32 @@
+@use 'sass:meta';
+@use '../abstracts' as *;
+
+:root {
+  @each $name, $value in $colors {
+    --color-#{$name}: #{$value};
+  }
+
+  @each $name, $stack in $fonts {
+    --font-#{$name}: #{meta.inspect($stack)};
+  }
+
+  @each $step, $value in $space {
+    --space-#{$step}: #{$value};
+  }
+
+  @each $name, $value in $radius {
+    --radius-#{$name}: #{$value};
+  }
+
+  --container: #{$container};
+
+  // Tokens semánticos: los componentes usan estos, no la paleta.
+  // El tema oscuro solo tendrá que redefinir este bloque.
+  --bg: var(--color-ground);
+  --surface: var(--color-surface);
+  --text: var(--color-ink);
+  --text-muted: var(--color-muted);
+  --border: var(--color-line);
+  --brand: var(--color-green);
+  --accent: var(--color-amber);
+}

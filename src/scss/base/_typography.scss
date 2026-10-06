@@ -1,0 +1,48 @@
+@use '../abstracts' as *;
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--text);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 5.6vw, 4.7rem);
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: clamp(2rem, 3.8vw, 3.1rem);
+}
+
+h3 {
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--brand);
+}
+
+code,
+.mono {
+  font-family: var(--font-mono);
+}
+
+:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
+}

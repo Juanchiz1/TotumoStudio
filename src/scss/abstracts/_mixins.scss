@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use 'tokens' as t;
+
+// Mobile first: @include mq('md') { ... }
+@mixin mq($bp) {
+  @if not map.has-key(t.$breakpoints, $bp) {
+    @error "Breakpoint desconocido: #{$bp}";
+  }
+
+  @media (min-width: map.get(t.$breakpoints, $bp)) {
+    @content;
+  }
+}
