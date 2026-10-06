@@ -1,0 +1,107 @@
+@use '../abstracts' as *;
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+    padding-block: var(--space-3);
+  }
+}
+
+.nav-toggle {
+  display: grid;
+  place-content: center;
+  gap: 6px;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: none;
+  border: 0;
+  border-radius: var(--radius-sm);
+
+  &__bar {
+    width: 1.5rem;
+    height: 2px;
+    background-color: var(--text);
+    border-radius: 2px;
+    transition: transform 0.2s ease;
+  }
+
+  &[aria-expanded='true'] &__bar:first-of-type {
+    transform: translateY(4px) rotate(45deg);
+  }
+
+  &[aria-expanded='true'] &__bar:last-of-type {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+
+  @include mq('lg') {
+    display: none;
+  }
+}
+
+.site-nav {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-4) 1.5rem var(--space-8);
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
+
+  // nav.js pone data-nav en el header. Sin JS el menú queda visible.
+  .site-header[data-nav='closed'] & {
+    display: none;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__link {
+    display: block;
+    padding-block: var(--space-3);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+
+    &:hover {
+      color: var(--color-amber);
+    }
+  }
+
+  @include mq('lg') {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-8);
+    padding: 0;
+    border-bottom: 0;
+
+    .site-header[data-nav='closed'] & {
+      display: flex;
+    }
+
+    &__list {
+      flex-direction: row;
+      gap: var(--space-8);
+    }
+
+    &__link {
+      font-size: 1rem;
+      border-bottom: 0;
+    }
+  }
+}

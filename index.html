@@ -3,15 +3,91 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Totumo Studio</title>
+    <meta
+      name="description"
+      content="Totumo Studio: desarrollo de sitios, tiendas online y aplicaciones web a medida para pymes."
+    />
+    <title>Totumo Studio | Desarrollo web a medida</title>
   </head>
   <body>
-        <main style="padding: 2rem">
-      <h1>Totumo Studio</h1>
-      <h2>Estudio de desarrollo web</h2>
-      <p>Texto de prueba en Hanken Grotesk. <a href="#">Un enlace</a>.</p>
-      <p><code>Desde $1.500.000</code></p>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header on-forest">
+      <div class="container site-header__inner">
+        <a class="logo" href="#inicio" aria-label="Totumo Studio, inicio">
+          <svg class="logo__mark" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+            <circle cx="17" cy="19" r="13" fill="#ffb81c" />
+            <path d="M17 6c0-3 2-4 5-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+          </svg>
+          <span class="logo__name">totumo</span>
+          <span class="logo__tag mono">studio</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-label="Menú" aria-expanded="false" aria-controls="menu" hidden>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+        </button>
+
+        <nav class="site-nav" id="menu" aria-label="Principal">
+          <ul class="site-nav__list">
+            <li><a class="site-nav__link" href="#servicios">Servicios</a></li>
+            <li><a class="site-nav__link" href="#cotizador">Cotizador</a></li>
+            <li><a class="site-nav__link" href="#proyectos">Proyectos</a></li>
+            <li><a class="site-nav__link" href="#proceso">Proceso</a></li>
+            <li><a class="site-nav__link" href="#contacto">Contacto</a></li>
+          </ul>
+          <a class="btn btn--accent" href="#cotizador">Cotizar proyecto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <section id="inicio" class="section on-forest">
+        <div class="container"><h1>Hero</h1></div>
+      </section>
+      <section id="servicios" class="section">
+        <div class="container"><h2>Servicios</h2></div>
+      </section>
+      <section id="cotizador" class="section">
+        <div class="container"><h2>Cotizador</h2></div>
+      </section>
+      <section id="proyectos" class="section">
+        <div class="container"><h2>Proyectos</h2></div>
+      </section>
+      <section id="proceso" class="section">
+        <div class="container"><h2>Proceso</h2></div>
+      </section>
+      <section id="contacto" class="section on-forest">
+        <div class="container"><h2>Contacto</h2></div>
+      </section>
     </main>
+
+    <footer class="site-footer on-forest">
+      <div class="container">
+        <div class="site-footer__top">
+          <a class="logo" href="#inicio" aria-label="Totumo Studio, volver arriba">
+            <svg class="logo__mark" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+              <circle cx="17" cy="19" r="13" fill="#ffb81c" />
+              <path d="M17 6c0-3 2-4 5-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+            </svg>
+            <span class="logo__name">totumo</span>
+          </a>
+          <nav aria-label="Pie de página">
+            <ul class="site-footer__list">
+              <li><a class="site-footer__link" href="#servicios">Servicios</a></li>
+              <li><a class="site-footer__link" href="#cotizador">Cotizador</a></li>
+              <li><a class="site-footer__link" href="#proyectos">Proyectos</a></li>
+              <li><a class="site-footer__link" href="#proceso">Proceso</a></li>
+              <li><a class="site-footer__link" href="#contacto">Contacto</a></li>
+            </ul>
+          </nav>
+        </div>
+        <p class="site-footer__note">
+          Totumo Studio es una marca ficticia. Proyecto de portafolio de Juan Diego Negrete.
+        </p>
+      </div>
+    </footer>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

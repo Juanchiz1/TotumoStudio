@@ -30,3 +30,17 @@
   --brand: var(--color-green);
   --accent: var(--color-amber);
 }
+
+
+// Secciones sobre fondo oscuro: redefine los tokens semánticos solo dentro del bloque.
+.on-forest {
+  --bg: var(--color-forest);
+  --surface: var(--color-forest);
+  --text: var(--color-ground);
+  --text-muted: var(--color-mist);
+  --border: var(--color-forest-line);
+  --brand: var(--color-amber);
+
+  color: var(--text);
+  background-color: var(--bg);
+}
