@@ -1,0 +1,306 @@
+@use '../abstracts' as *;
+
+// Mini ventana de navegador. Todo es decorativo: lo dibuja el CSS.
+// El atributo data-type del .mock decide cuál vista se muestra.
+$types: 'landing', 'sitio', 'tienda', 'app';
+$ink-soft: rgb(15 31 26 / 14%);
+
+.mock {
+  overflow: hidden;
+  color: var(--color-ink);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1.5rem 3.5rem rgb(0 0 0 / 35%);
+
+  &__bar {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    padding: 0.6rem 0.9rem;
+    background-color: var(--color-ground);
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  &__dots {
+    display: flex;
+    gap: 0.35rem;
+
+    i {
+      width: 0.6rem;
+      height: 0.6rem;
+      background-color: var(--color-line);
+      border-radius: 50%;
+    }
+  }
+
+  &__url {
+    flex: 1;
+    padding: 0.2rem 0.75rem;
+    overflow: hidden;
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-pill);
+  }
+
+  &__screen {
+    aspect-ratio: 4 / 3;
+    padding: 0.9rem;
+  }
+
+  &__view {
+    display: none;
+    gap: 0.7rem;
+    height: 100%;
+  }
+
+  @each $type in $types {
+    &[data-type='#{$type}'] &__view--#{$type} {
+      display: grid;
+    }
+  }
+}
+
+// Piezas con las que se arman las cuatro vistas.
+.m-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.m-logo {
+  width: 1.1rem;
+  height: 1.1rem;
+  background-color: var(--color-amber);
+  border-radius: 50%;
+}
+
+.m-links {
+  display: flex;
+  gap: 0.5rem;
+
+  i {
+    width: 1.6rem;
+    height: 0.3rem;
+    background-color: $ink-soft;
+    border-radius: 1rem;
+  }
+}
+
+.m-title,
+.m-line {
+  display: block;
+  border-radius: 1rem;
+
+  &--sm {
+    width: 40%;
+  }
+
+  &--md {
+    width: 65%;
+  }
+
+  &--lg {
+    width: 90%;
+  }
+}
+
+.m-title {
+  height: 0.8rem;
+  background-color: var(--color-ink);
+}
+
+.m-line {
+  height: 0.35rem;
+  background-color: $ink-soft;
+}
+
+.m-pill {
+  display: block;
+  width: 4.5rem;
+  height: 1.3rem;
+  background-color: var(--color-amber);
+  border-radius: var(--radius-pill);
+
+  &--sm {
+    width: 3rem;
+    height: 1rem;
+    background-color: var(--color-ink);
+  }
+}
+
+.m-box {
+  display: block;
+  min-height: 2rem;
+  background-color: var(--color-green-soft);
+  border-radius: 0.5rem;
+
+  &--green {
+    background-color: var(--color-green);
+  }
+}
+
+.m-stack {
+  display: grid;
+  gap: 0.45rem;
+  align-content: center;
+}
+
+.m-row3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+.mock__view--landing {
+  grid-template-rows: auto 1fr auto;
+
+  .m-stack {
+    justify-items: center;
+  }
+
+  .m-row3 > * {
+    height: 2.2rem;
+  }
+}
+
+.mock__view--sitio {
+  grid-template-rows: auto 1fr auto;
+
+  .m-split {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 0.8rem;
+  }
+
+  .m-row3 > * {
+    height: 2.6rem;
+    background-color: var(--color-ground);
+    border: 1px solid var(--color-line);
+  }
+}
+
+.mock__view--tienda {
+  grid-template-rows: auto 1fr;
+
+  .m-cart {
+    position: relative;
+    width: 1.3rem;
+    height: 1.1rem;
+    border: 2px solid var(--color-ink);
+    border-radius: 0.25rem;
+
+    &::after {
+      position: absolute;
+      top: -0.45rem;
+      right: -0.45rem;
+      width: 0.6rem;
+      height: 0.6rem;
+      content: '';
+      background-color: var(--color-green);
+      border-radius: 50%;
+    }
+  }
+
+  .m-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+  }
+
+  .m-product {
+    display: grid;
+    grid-template-rows: 1fr auto auto;
+    gap: 0.35rem;
+    padding: 0.4rem;
+    border: 1px solid var(--color-line);
+    border-radius: 0.6rem;
+  }
+
+  .m-price {
+    width: 45%;
+    height: 0.45rem;
+    background-color: var(--color-green);
+    border-radius: 1rem;
+  }
+}
+
+.mock__view--app {
+  grid-template-columns: 22% 1fr;
+
+  .m-side {
+    display: grid;
+    gap: 0.5rem;
+    align-content: start;
+    padding: 0.6rem;
+    background-color: var(--color-forest);
+    border-radius: 0.6rem;
+
+    i {
+      height: 0.45rem;
+      background-color: rgb(243 245 239 / 25%);
+      border-radius: 1rem;
+
+      &.is-on {
+        background-color: var(--color-amber);
+      }
+    }
+  }
+
+  .m-main {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 0.7rem;
+  }
+
+  .m-row3 > * {
+    height: 2.8rem;
+    background-color: var(--color-ground);
+    border: 1px solid var(--color-line);
+  }
+
+  .m-table {
+    display: grid;
+    gap: 0.4rem;
+    align-content: start;
+
+    i {
+      height: 1rem;
+      background-color: var(--color-ground);
+      border-radius: 0.3rem;
+
+      &:first-child {
+        background-color: $ink-soft;
+      }
+    }
+  }
+}
+
+// La vista "se construye": cada pieza entra con un pequeño retraso.
+@keyframes m-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+}
+
+.mock__view > *,
+.m-row3 > *,
+.m-grid > *,
+.m-table > * {
+  animation: m-rise 0.45s ease backwards;
+}
+
+@for $i from 1 through 6 {
+  .mock__view > :nth-child(#{$i}) {
+    animation-delay: #{($i - 1) * 90}ms;
+  }
+
+  .m-row3 > :nth-child(#{$i}),
+  .m-grid > :nth-child(#{$i}),
+  .m-table > :nth-child(#{$i}) {
+    animation-delay: #{150 + $i * 70}ms;
+  }
+}

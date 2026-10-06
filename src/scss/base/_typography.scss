@@ -42,7 +42,17 @@ code,
   font-family: var(--font-mono);
 }
 
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
 :focus-visible {
   outline: 3px solid var(--brand);
   outline-offset: 3px;
 }
+
+
