@@ -1,0 +1,37 @@
+// Pantallas en miniatura, dibujadas con CSS.
+.device {
+  display: grid;
+  gap: 0.4rem;
+  align-content: start;
+  padding: 0.6rem;
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-ink);
+  border-radius: 0.6rem;
+
+  i {
+    height: 0.4rem;
+    background-color: var(--color-line);
+    border-radius: 1rem;
+
+    &:first-child {
+      height: 1.6rem;
+      background-color: var(--color-green-soft);
+    }
+
+    &:last-child {
+      width: 45%;
+      background-color: var(--color-amber);
+    }
+  }
+
+  &--desktop {
+    width: 62%;
+    aspect-ratio: 16 / 10;
+  }
+
+  &--phone {
+    width: 22%;
+    aspect-ratio: 9 / 17;
+    border-radius: 0.9rem;
+  }
+}

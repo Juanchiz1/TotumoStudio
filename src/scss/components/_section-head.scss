@@ -1,0 +1,11 @@
+.section-head {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 45rem;
+  margin-bottom: var(--space-12);
+
+  &__lead {
+    font-size: 1.12rem;
+    color: var(--text-muted);
+  }
+}

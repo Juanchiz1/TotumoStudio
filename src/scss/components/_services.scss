@@ -1,0 +1,170 @@
+@use '../abstracts' as *;
+
+// Grilla bento: cada tarjeta ocupa un área con nombre.
+.services {
+  display: grid;
+  grid-template-areas:
+    'tienda'
+    'sitio'
+    'app'
+    'mant';
+  gap: var(--space-4);
+
+  @include mq('md') {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      'tienda tienda'
+      'sitio  app'
+      'sitio  mant';
+  }
+
+  @include mq('lg') {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-areas:
+      'tienda tienda sitio'
+      'app    mant   sitio';
+  }
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  color: var(--text);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+
+  @include mq('md') {
+    padding: var(--space-8);
+  }
+
+  &--tienda {
+    grid-area: tienda;
+  }
+
+  &--sitio {
+    grid-area: sitio;
+  }
+
+  &--app {
+    grid-area: app;
+  }
+
+  &--mant {
+    grid-area: mant;
+  }
+
+  // Tarjeta destacada en amarillo: tokens propios dentro de ella.
+  &--accent {
+    --surface: var(--color-amber);
+    --text: var(--color-ink);
+    --text-muted: var(--color-ink);
+    --border: var(--color-amber);
+    --brand: var(--color-ink);
+  }
+
+  &__icon {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 3.75rem;
+    height: 3.75rem;
+    color: var(--color-ink);
+    background-color: var(--color-amber);
+    border-radius: 50%;
+
+    svg {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+
+    .service--accent & {
+      background-color: var(--color-surface);
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+  }
+
+  &__desc {
+    color: var(--text-muted);
+  }
+
+  &__list {
+    display: grid;
+    gap: var(--space-2);
+
+    li {
+      display: flex;
+      gap: var(--space-2);
+      align-items: flex-start;
+    }
+
+    svg {
+      flex: none;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.25rem;
+      color: var(--brand);
+    }
+  }
+
+  &__foot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--space-4);
+    margin-top: auto;
+    border-top: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
+  }
+
+  &__price {
+    font-size: 0.92rem;
+  }
+
+  &__link {
+    display: inline-flex;
+    gap: var(--space-2);
+    align-items: center;
+    min-height: 2.75rem;
+    font-weight: 700;
+    color: var(--brand);
+    text-decoration: none;
+
+    svg {
+      width: 1.1rem;
+      height: 1.1rem;
+      transition: transform 0.15s ease;
+    }
+
+    &:hover svg {
+      transform: translateX(4px);
+    }
+  }
+
+  // Ilustración de pantallas para la tarjeta alta. Solo aparece cuando la tarjeta ocupa dos filas.
+  &__art {
+    display: none;
+
+    @include mq('md') {
+      display: flex;
+      flex: 1;
+      gap: var(--space-3);
+      align-items: center;
+      justify-content: center;
+      padding-block: var(--space-6);
+    }
+  }
+
+  // La destacada reparte su lista en dos columnas cuando hay espacio.
+  @include mq('md') {
+    &--tienda &__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
