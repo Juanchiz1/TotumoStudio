@@ -6,3 +6,10 @@
 .section {
   padding-block: clamp(4rem, 8vw, 6rem);
 }
+
+
+.section--tint {
+  --bg: var(--color-sage);
+
+  background-color: var(--bg);
+}

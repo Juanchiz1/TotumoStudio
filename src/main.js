@@ -5,7 +5,9 @@ import './scss/main.scss'
 import { initNav } from './js/nav.js'
 import { initHero } from './js/hero.js'
 import { initServices } from './js/services.js'
+import { initQuote } from './js/quote/quote.js'
 
 initNav()
 initHero()
 initServices()
+initQuote()

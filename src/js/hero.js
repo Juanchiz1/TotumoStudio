@@ -1,5 +1,6 @@
 import { projectTypes } from './data/project-types.js'
 import { formatCOP } from './utils/format.js'
+import { quoteStore } from './quote/store.js'
 
 const ROTATE_MS = 3500
 
@@ -58,12 +59,17 @@ export function initHero() {
     timer = null
   }
 
-  switcher.addEventListener('click', (event) => {
+    switcher.addEventListener('click', (event) => {
     const button = event.target.closest('button')
-    if (!button) return
+    if (button) quoteStore.set({ typeId: button.dataset.type })
+  })
+
+  // Cuando el usuario elige un tipo (aquí, en servicios o en el cotizador),
+  // la demo deja de rotar y muestra lo que eligió.
+  quoteStore.subscribe((state) => {
     userChose = true
     stop()
-    render(button.dataset.type)
+    render(state.typeId)
   })
 
   // La rotación se pausa mientras el usuario mira o navega la demo.

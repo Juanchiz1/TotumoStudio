@@ -14,6 +14,11 @@ export const extras = [
   { id: 'seo', name: 'SEO inicial', price: 500000, weeks: 0 },
 ]
 
+export const deliveryOptions = [
+  { id: 'normal', name: 'Sin afán', description: 'Tiempos normales de entrega.' },
+  { id: 'urgente', name: 'Lo necesito ya', description: 'Entrega más rápida, con un 25 % adicional.' },
+]
+
 // Entrega urgente: 25 % más caro y 30 % más rápido.
 export const rush = { priceFactor: 1.25, timeFactor: 0.7 }
 

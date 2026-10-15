@@ -12,7 +12,7 @@
   </head>
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
- 
+
     <header class="site-header on-forest">
       <div class="container site-header__inner">
         <a class="logo" href="#inicio" aria-label="Totumo Studio, inicio">
@@ -23,12 +23,12 @@
           <span class="logo__name">totumo</span>
           <span class="logo__tag mono">studio</span>
         </a>
- 
+
         <button class="nav-toggle" type="button" aria-label="Menú" aria-expanded="false" aria-controls="menu" hidden>
           <span class="nav-toggle__bar" aria-hidden="true"></span>
           <span class="nav-toggle__bar" aria-hidden="true"></span>
         </button>
- 
+
         <nav class="site-nav" id="menu" aria-label="Principal">
           <ul class="site-nav__list">
             <li><a class="site-nav__link" href="#servicios">Servicios</a></li>
@@ -41,7 +41,7 @@
         </nav>
       </div>
     </header>
- 
+
     <main id="contenido">
       <section id="inicio" class="hero on-forest">
         <div class="container hero__inner">
@@ -60,10 +60,10 @@
               <a class="btn btn--ghost btn--lg" href="#proyectos">Ver proyectos</a>
             </div>
           </div>
- 
+
           <div class="hero__demo">
             <div class="demo-switch" role="group" aria-label="Ver un ejemplo de cada tipo de proyecto" hidden></div>
- 
+
             <div class="mock" data-type="sitio" aria-hidden="true">
               <div class="mock__bar">
                 <span class="mock__dots"><i></i><i></i><i></i></span>
@@ -80,7 +80,7 @@
                   </div>
                   <div class="m-row3"><span class="m-box"></span><span class="m-box"></span><span class="m-box"></span></div>
                 </div>
- 
+
                 <div class="mock__view mock__view--sitio">
                   <div class="m-nav">
                     <span class="m-logo"></span>
@@ -98,7 +98,7 @@
                   </div>
                   <div class="m-row3"><span class="m-box"></span><span class="m-box"></span><span class="m-box"></span></div>
                 </div>
- 
+
                 <div class="mock__view mock__view--tienda">
                   <div class="m-nav"><span class="m-logo"></span><span class="m-cart"></span></div>
                   <div class="m-grid">
@@ -110,7 +110,7 @@
                     <div class="m-product"><span class="m-box"></span><span class="m-line m-line--md"></span><span class="m-price"></span></div>
                   </div>
                 </div>
- 
+
                 <div class="mock__view mock__view--app">
                   <div class="m-side"><span class="m-logo"></span><i></i><i class="is-on"></i><i></i><i></i></div>
                   <div class="m-main">
@@ -120,7 +120,7 @@
                 </div>
               </div>
             </div>
- 
+
             <p class="demo-caption">
               <span class="demo-caption__name">Sitio corporativo</span>
               <span class="demo-caption__meta mono">desde $ 3.200.000 · 4 semanas</span>
@@ -128,7 +128,7 @@
           </div>
         </div>
       </section>
- 
+
       <section id="servicios" class="section">
         <div class="container">
           <header class="section-head">
@@ -138,7 +138,7 @@
               Cuatro líneas de trabajo, cada una con un precio base que puedes ajustar en el cotizador.
             </p>
           </header>
- 
+
           <div class="services">
             <article class="service service--tienda service--accent">
               <span class="service__icon" aria-hidden="true">
@@ -263,8 +263,58 @@
           </div>
         </div>
       </section>
-      <section id="cotizador" class="section">
-        <div class="container"><h2>Cotizador</h2></div>
+      <section id="cotizador" class="section section--tint">
+        <div class="container">
+          <header class="section-head">
+            <p class="eyebrow">Cotizador</p>
+            <h2>Arma tu proyecto y mira el precio al instante</h2>
+            <p class="section-head__lead">
+              Cuatro preguntas. El estimado cambia con cada respuesta y no tienes que dejar tus datos para verlo.
+            </p>
+          </header>
+
+          <div class="quote">
+            <form class="quote-form" aria-label="Cotizador de proyectos">
+              <fieldset class="quote-step">
+                <legend class="quote-step__title">¿Qué necesitas?</legend>
+                <div class="quote-step__options" data-options="type"></div>
+              </fieldset>
+
+              <fieldset class="quote-step">
+                <legend class="quote-step__title">¿Qué tan grande es?</legend>
+                <div class="quote-step__options" data-options="scope"></div>
+              </fieldset>
+
+              <fieldset class="quote-step">
+                <legend class="quote-step__title">
+                  ¿Le sumamos algo? <span class="quote-step__hint">Opcional</span>
+                </legend>
+                <div class="quote-step__options" data-options="extra"></div>
+              </fieldset>
+
+              <fieldset class="quote-step">
+                <legend class="quote-step__title">¿Para cuándo?</legend>
+                <div class="quote-step__options" data-options="delivery"></div>
+              </fieldset>
+            </form>
+
+            <aside class="quote-summary on-forest" aria-label="Resumen de la cotización">
+              <p class="quote-summary__label eyebrow">Tu estimado</p>
+              <div class="quote-summary__live" aria-live="polite">
+                <p class="quote-summary__range">
+                  <span data-quote="range">$4,8 – $5,8</span>
+                  <span class="quote-summary__unit">millones de pesos (COP)</span>
+                </p>
+                <p class="quote-summary__weeks">
+                  Entrega estimada <strong data-quote="weeks">6 semanas</strong>
+                </p>
+              </div>
+              <ul class="quote-summary__lines" data-quote="lines"></ul>
+              <a class="btn btn--accent" href="#contacto">Pedir esta cotización</a>
+              <p class="quote-summary__note">Es un valor de referencia. El precio final queda cerrado en la propuesta.</p>
+            </aside>
+          </div>
+        </div>
       </section>
       <section id="proyectos" class="section">
         <div class="container"><h2>Proyectos</h2></div>
@@ -276,7 +326,7 @@
         <div class="container"><h2>Contacto</h2></div>
       </section>
     </main>
- 
+
     <footer class="site-footer on-forest">
       <div class="container">
         <div class="site-footer__top">
@@ -302,7 +352,7 @@
         </p>
       </div>
     </footer>
- 
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,280 @@
+@use '../abstracts' as *;
+
+.quote {
+  display: grid;
+  gap: var(--space-6);
+
+  @include mq('lg') {
+    grid-template-columns: minmax(0, 1fr) 22rem;
+    gap: var(--space-8);
+    align-items: start;
+  }
+}
+
+.quote-form {
+  display: grid;
+  gap: var(--space-4);
+  counter-reset: step;
+}
+
+.quote-step {
+  min-width: 0;
+  padding: var(--space-6);
+  margin: 0;
+  background-color: var(--surface);
+  border: 0;
+  border-radius: var(--radius-lg);
+
+  // float + width: 100% hace que la legend se comporte como un bloque normal.
+  &__title {
+    display: flex;
+    float: left;
+    gap: var(--space-3);
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin-bottom: var(--space-4);
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+
+    // Numeración automática de los pasos con un contador de CSS.
+    &::before {
+      display: grid;
+      flex: none;
+      place-items: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--color-amber);
+      content: counter(step);
+      counter-increment: step;
+      background-color: var(--color-forest);
+      border-radius: 50%;
+    }
+  }
+
+  &__hint {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  &__options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: var(--space-3);
+    clear: both;
+
+    // Cuatro tipos de proyecto: mejor 2 × 2 que 3 + 1.
+    &[data-options='type'] {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    }
+  }
+}
+
+.option {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.15rem var(--space-3);
+  align-content: start;
+  padding: var(--space-4);
+  cursor: pointer;
+  background-color: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+
+  // El input real queda encima de toda la tarjeta, invisible pero clicable y enfocable.
+  input {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    cursor: pointer;
+    opacity: 0;
+  }
+
+  &:hover {
+    border-color: var(--brand);
+  }
+
+  &:has(:checked) {
+    background-color: var(--color-green-soft);
+    border-color: var(--brand);
+  }
+
+  &:has(:focus-visible) {
+    outline: 3px solid var(--brand);
+    outline-offset: 2px;
+  }
+
+  &__mark {
+    display: grid;
+    grid-row: 1;
+    grid-column: 2;
+    place-items: center;
+    width: 1.4rem;
+    height: 1.4rem;
+    color: transparent;
+    border: 2px solid var(--color-muted);
+    border-radius: 50%;
+
+    svg {
+      width: 0.8rem;
+      height: 0.8rem;
+    }
+
+    .option--check & {
+      border-radius: 0.35rem;
+    }
+
+    .option:has(:checked) & {
+      color: var(--color-surface);
+      background-color: var(--brand);
+      border-color: var(--brand);
+    }
+  }
+
+  &__name {
+    grid-row: 1;
+    grid-column: 1;
+    font-weight: 700;
+  }
+
+  &__desc,
+  &__price {
+    grid-column: 1 / -1;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+  }
+
+  &__price {
+    margin-top: var(--space-1);
+    font-size: 0.82rem;
+    color: var(--text);
+  }
+}
+
+// En móvil el resumen es una barra pegada abajo; en escritorio, una columna fija.
+.quote-summary {
+  position: sticky;
+  bottom: var(--space-3);
+  z-index: 10;
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 25%);
+
+  &__label,
+  &__lines,
+  &__note {
+    display: none;
+  }
+
+  &__live {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  &__range {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--color-amber);
+    white-space: nowrap;
+  }
+
+  &__unit {
+    display: block;
+    margin-top: var(--space-1);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    white-space: normal;
+  }
+
+  &__weeks {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: right;
+
+    strong {
+      display: block;
+      font-size: 1rem;
+      color: var(--text);
+    }
+  }
+
+  @include mq('lg') {
+    top: 6rem;
+    bottom: auto;
+    gap: var(--space-6);
+    padding: var(--space-8);
+    box-shadow: none;
+
+    &__label,
+    &__lines,
+    &__note {
+      display: block;
+    }
+
+    &__live {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    &__range {
+      font-size: 2.5rem;
+    }
+
+    &__unit {
+      font-size: 0.95rem;
+    }
+
+    &__weeks {
+      display: flex;
+      justify-content: space-between;
+      padding-block: var(--space-3);
+      font-size: 1rem;
+      text-align: left;
+      border-block: 1px solid var(--border);
+
+      strong {
+        display: inline;
+      }
+    }
+
+    &__lines {
+      display: grid;
+      gap: var(--space-3);
+      font-size: 0.95rem;
+
+      li {
+        display: flex;
+        gap: var(--space-4);
+        justify-content: space-between;
+      }
+
+      .mono {
+        flex: none;
+        color: var(--text-muted);
+      }
+    }
+
+    &__note {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+  }
+}
