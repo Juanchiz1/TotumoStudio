@@ -1,0 +1,161 @@
+@use '../abstracts' as *;
+
+.projects-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: var(--space-12);
+
+  .section-head {
+    margin-bottom: 0;
+  }
+}
+
+// En móvil, cuatro columnas iguales para que los filtros quepan en una fila.
+.filters {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+  width: 100%;
+
+  @include mq('md') {
+    display: flex;
+    width: auto;
+  }
+
+  &__btn {
+    min-height: 2.75rem;
+    padding: 0.5rem 0.25rem;
+    font-weight: 600;
+    color: var(--text);
+    background-color: transparent;
+    border: 2px solid var(--text);
+    border-radius: var(--radius-pill);
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease;
+
+    &:hover {
+      background-color: var(--color-green-soft);
+    }
+
+    &[aria-pressed='true'] {
+      color: var(--color-surface);
+      background-color: var(--text);
+    }
+
+    @include mq('md') {
+      padding-inline: 1.2rem;
+    }
+  }
+}
+
+.projects {
+  display: grid;
+  gap: var(--space-6);
+  padding: 0;
+  list-style: none;
+
+  @include mq('md') {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+// display: grid en .project le ganaría al atributo hidden; esta regla lo devuelve.
+.project[hidden] {
+  display: none;
+}
+
+.project {
+  &__card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+
+  &__media {
+    margin: 0;
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+    background-color: var(--color-green-soft);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+  }
+
+  &__card:hover &__media img {
+    transform: scale(1.04);
+  }
+
+  &__body {
+    display: grid;
+    gap: var(--space-4);
+    align-content: start;
+    padding: var(--space-6);
+
+    @include mq('md') {
+      padding: var(--space-8);
+    }
+  }
+
+  &__tag {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brand);
+  }
+
+  &__title {
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+  }
+
+  &__story {
+    display: grid;
+    gap: var(--space-4);
+    margin: 0;
+
+    dt {
+      margin-bottom: var(--space-1);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    dd {
+      margin: 0;
+    }
+  }
+
+  &__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding: 0;
+    list-style: none;
+
+    li {
+      padding: 0.3rem 0.8rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background-color: var(--color-green-soft);
+      border-radius: var(--radius-pill);
+    }
+  }
+}
+
+// Duración de la animación de la View Transition al filtrar.
+::view-transition-group(*) {
+  animation-duration: 0.35s;
+}

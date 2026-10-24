@@ -317,7 +317,165 @@
         </div>
       </section>
       <section id="proyectos" class="section">
-        <div class="container"><h2>Proyectos</h2></div>
+        <div class="container">
+          <div class="projects-head">
+            <header class="section-head">
+              <p class="eyebrow">Proyectos de muestra</p>
+              <h2>Problemas concretos, resueltos con una web</h2>
+            </header>
+            <div class="filters" role="group" aria-label="Filtrar proyectos" hidden>
+              <button class="filters__btn" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+              <button class="filters__btn" type="button" data-filter="sitios" aria-pressed="false">Sitios</button>
+              <button class="filters__btn" type="button" data-filter="tiendas" aria-pressed="false">Tiendas</button>
+              <button class="filters__btn" type="button" data-filter="apps" aria-pressed="false">Apps</button>
+            </div>
+          </div>
+
+          <p class="visually-hidden" aria-live="polite" data-projects-status></p>
+
+          <ul class="projects">
+            <li class="project" data-category="tiendas">
+              <article class="project__card">
+                <figure class="project__media">
+                  <img
+                    src="./src/assets/proyectos/panaderia-640.webp"
+                    srcset="./src/assets/proyectos/panaderia-640.webp 640w, ./src/assets/proyectos/panaderia-1200.webp 1200w"
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    width="1200"
+                    height="800"
+                    alt="Vitrina de panadería con croissants, roles de canela y panes artesanales"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+                <div class="project__body">
+                  <p class="project__tag mono">Tienda online · Panadería</p>
+                  <h3 class="project__title">Panadería Doña Nubia</h3>
+                  <dl class="project__story">
+                    <div>
+                      <dt>El problema</dt>
+                      <dd>Los pedidos llegaban por WhatsApp y se perdían entre los chats del día.</dd>
+                    </div>
+                    <div>
+                      <dt>Lo que hicimos</dt>
+                      <dd>Catálogo con carrito. El pedido llega ordenado al WhatsApp del local, con pago en línea o contra entrega.</dd>
+                    </div>
+                  </dl>
+                  <ul class="project__chips">
+                    <li>Carrito</li>
+                    <li>Pedidos a WhatsApp</li>
+                    <li>Pagos en línea</li>
+                  </ul>
+                </div>
+              </article>
+            </li>
+            <li class="project" data-category="apps">
+              <article class="project__card">
+                <figure class="project__media">
+                  <img
+                    src="./src/assets/proyectos/veterinaria-640.webp"
+                    srcset="./src/assets/proyectos/veterinaria-640.webp 640w, ./src/assets/proyectos/veterinaria-1200.webp 1200w"
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    width="1200"
+                    height="800"
+                    alt="Veterinario junto a un perro pomerania y un ecógrafo"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+                <div class="project__body">
+                  <p class="project__tag mono">App web · Veterinaria</p>
+                  <h3 class="project__title">Clínica Veterinaria Huellitas</h3>
+                  <dl class="project__story">
+                    <div>
+                      <dt>El problema</dt>
+                      <dd>Las citas se anotaban en un cuaderno y los clientes llamaban para todo.</dd>
+                    </div>
+                    <div>
+                      <dt>Lo que hicimos</dt>
+                      <dd>Agenda en línea con recordatorios, historial por mascota y un panel para recepción.</dd>
+                    </div>
+                  </dl>
+                  <ul class="project__chips">
+                    <li>Agenda</li>
+                    <li>Recordatorios</li>
+                    <li>Historial por mascota</li>
+                  </ul>
+                </div>
+              </article>
+            </li>
+            <li class="project" data-category="sitios">
+              <article class="project__card">
+                <figure class="project__media">
+                  <img
+                    src="./src/assets/proyectos/ferreteria-640.webp"
+                    srcset="./src/assets/proyectos/ferreteria-640.webp 640w, ./src/assets/proyectos/ferreteria-1200.webp 1200w"
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    width="1200"
+                    height="800"
+                    alt="Local de ferretería con escobas, linternas y repuestos colgados del techo"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+                <div class="project__body">
+                  <p class="project__tag mono">Sitio corporativo · Ferretería</p>
+                  <h3 class="project__title">Ferretería La Tuerca</h3>
+                  <dl class="project__story">
+                    <div>
+                      <dt>El problema</dt>
+                      <dd>No aparecían en Google y el catálogo era un PDF que nadie abría.</dd>
+                    </div>
+                    <div>
+                      <dt>Lo que hicimos</dt>
+                      <dd>Sitio con catálogo buscable por referencia, mapa, horarios y botón directo para cotizar.</dd>
+                    </div>
+                  </dl>
+                  <ul class="project__chips">
+                    <li>Catálogo buscable</li>
+                    <li>SEO local</li>
+                    <li>Botón de cotización</li>
+                  </ul>
+                </div>
+              </article>
+            </li>
+            <li class="project" data-category="sitios">
+              <article class="project__card">
+                <figure class="project__media">
+                  <img
+                    src="./src/assets/proyectos/academia-640.webp"
+                    srcset="./src/assets/proyectos/academia-640.webp 640w, ./src/assets/proyectos/academia-1200.webp 1200w"
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    width="1200"
+                    height="800"
+                    alt="Persona tocando una guitarra acústica al aire libre"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+                <div class="project__body">
+                  <p class="project__tag mono">Landing page · Academia de música</p>
+                  <h3 class="project__title">Academia Compás</h3>
+                  <dl class="project__story">
+                    <div>
+                      <dt>El problema</dt>
+                      <dd>Las inscripciones dependían de un formulario suelto y nadie sabía si quedaban cupos.</dd>
+                    </div>
+                    <div>
+                      <dt>Lo que hicimos</dt>
+                      <dd>Una landing por curso con cupos visibles, inscripción en tres pasos y confirmación por correo.</dd>
+                    </div>
+                  </dl>
+                  <ul class="project__chips">
+                    <li>Cupos visibles</li>
+                    <li>Inscripción en línea</li>
+                    <li>Confirmación por correo</li>
+                  </ul>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
       </section>
       <section id="proceso" class="section">
         <div class="container"><h2>Proceso</h2></div>
