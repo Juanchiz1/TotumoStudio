@@ -44,3 +44,17 @@
   color: var(--text);
   background-color: var(--bg);
 }
+
+
+// Lo contrario: un bloque claro dentro de una sección oscura.
+.on-light {
+  --bg: var(--color-surface);
+  --surface: var(--color-surface);
+  --text: var(--color-ink);
+  --text-muted: var(--color-muted);
+  --border: var(--color-line);
+  --brand: var(--color-green);
+
+  color: var(--text);
+  background-color: var(--bg);
+}

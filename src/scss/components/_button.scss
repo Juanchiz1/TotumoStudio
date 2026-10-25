@@ -31,3 +31,14 @@
     border-color: currentColor;
   }
 }
+
+  &--brand {
+    color: var(--color-surface);
+    background-color: var(--color-green);
+  }
+
+  &:disabled {
+    cursor: progress;
+    opacity: 0.7;
+    transform: none;
+  }

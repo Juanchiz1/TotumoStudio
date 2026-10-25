@@ -8,6 +8,12 @@
   margin: 0;
 }
 
+
+// Un display: grid o flex de un componente no debe ganarle al atributo hidden.
+[hidden] {
+  display: none !important;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -35,8 +41,8 @@ button {
   cursor: pointer;
 }
 
-ul[class],
-ol[class] {
+// :where() deja la especificidad en cero: cualquier clase de un componente le gana.
+:where(ul[class], ol[class]) {
   padding: 0;
   list-style: none;
 }

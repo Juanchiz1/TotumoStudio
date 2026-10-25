@@ -7,9 +7,11 @@ import { initHero } from './js/hero.js'
 import { initServices } from './js/services.js'
 import { initQuote } from './js/quote/quote.js'
 import { initProjects } from './js/projects.js'
+import { initContact } from './js/contact/contact.js'
 
 initNav()
 initHero()
 initServices()
 initQuote()
 initProjects()
+initContact()

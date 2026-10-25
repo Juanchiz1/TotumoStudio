@@ -1,0 +1,84 @@
+@use '../abstracts' as *;
+
+// Línea de tiempo: vertical en móvil, horizontal desde 'lg'.
+.steps {
+  position: relative;
+  display: grid;
+  gap: var(--space-8);
+  padding: 0 0 0 2.5rem;
+  list-style: none;
+
+  &::before {
+    position: absolute;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    left: 0.65rem;
+    width: 2px;
+    content: '';
+    background-color: var(--border);
+  }
+
+  @include mq('lg') {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding: 3rem 0 0;
+
+    &::before {
+      top: 0.65rem;
+      right: 0;
+      bottom: auto;
+      left: 0;
+      width: auto;
+      height: 2px;
+    }
+  }
+}
+
+.step {
+  position: relative;
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+
+  // El punto sobre la línea. La sombra del color del fondo lo separa de la línea.
+  &::before {
+    position: absolute;
+    top: 0.2rem;
+    left: -2.5rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    content: '';
+    background-color: var(--color-amber);
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px var(--bg);
+
+    @include mq('lg') {
+      top: -3rem;
+      left: 0;
+    }
+  }
+
+  &:last-child::before {
+    background-color: var(--brand);
+  }
+
+  &__num {
+    font-size: 0.9rem;
+    color: var(--brand);
+  }
+
+  &__title {
+    font-size: 1.4rem;
+  }
+
+  &__text {
+    color: var(--text-muted);
+  }
+
+  &__time {
+    justify-self: start;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+    background-color: var(--color-green-soft);
+    border-radius: var(--radius-pill);
+  }
+}
